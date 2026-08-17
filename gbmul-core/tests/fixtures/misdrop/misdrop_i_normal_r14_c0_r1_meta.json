@@ -1,0 +1,37 @@
+{
+  "version": "1",
+  "timestamp": "f311",
+  "source": null,
+  "current_piece": {
+    "piece_type": 0,
+    "rot": 1,
+    "spawn_col": 0
+  },
+  "next_piece": {
+    "piece_type": 4,
+    "ori": 16
+  },
+  "misdrop": {
+    "num": 1,
+    "total": 27,
+    "wanted_col": 0,
+    "wanted_rot": 1,
+    "wanted_row": 14,
+    "actual_col": 0,
+    "actual_rot": 1,
+    "actual_row": 17,
+    "got_valid": true,
+    "move_type": "normal",
+    "path_len": 3,
+    "path": [
+      "D",
+      "D",
+      "D"
+    ],
+    "critical": false
+  },
+  "strategy": "2ply-bfs",
+  "mode": null,
+  "pps": "inf",
+  "note": ""
+}

@@ -1,0 +1,53 @@
+{
+  "version": "1",
+  "timestamp": "f825",
+  "source": null,
+  "current_piece": {
+    "piece_type": 5,
+    "rot": 0,
+    "spawn_col": 3
+  },
+  "next_piece": {
+    "piece_type": 3,
+    "ori": 20
+  },
+  "misdrop": {
+    "num": 1,
+    "total": 54,
+    "wanted_col": 3,
+    "wanted_rot": 1,
+    "wanted_row": 13,
+    "actual_col": 3,
+    "actual_rot": 1,
+    "actual_row": 11,
+    "got_valid": true,
+    "move_type": "tuck",
+    "path_len": 19,
+    "path": [
+      "CW",
+      "L",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "D",
+      "R"
+    ],
+    "critical": false
+  },
+  "strategy": "2ply-bfs",
+  "mode": null,
+  "pps": "inf",
+  "note": ""
+}

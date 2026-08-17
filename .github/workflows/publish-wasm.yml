@@ -1,0 +1,48 @@
+name: Publish WASM
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+      - run: rustup target add wasm32-unknown-unknown
+
+      - name: Install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+      - name: Build WASM
+        run: wasm-pack build gbmul-wasm --target web
+
+      - name: Package WASM files
+        run: |
+          cd gbmul-wasm/pkg
+          tar czf ../../wasm-package.tar.gz \
+            gbmul_wasm.js \
+            gbmul_wasm_bg.wasm \
+            gbmul_wasm.d.ts \
+            gbmul_wasm_bg.wasm.d.ts
+
+      - name: Create or update release
+        run: |
+          gh release upload wasm-pkg \
+            --repo gbmul/gbmul-core \
+            wasm-package.tar.gz \
+            --clobber 2>/dev/null || \
+          gh release create wasm-pkg \
+            --repo gbmul/gbmul-core \
+            --title "WASM package" \
+            --notes "Latest WASM build from main" \
+            --target ${{ github.sha }} \
+            wasm-package.tar.gz
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

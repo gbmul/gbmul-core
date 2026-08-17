@@ -1,0 +1,3027 @@
+{
+  "version": 2,
+  "contract": {
+    "id_rule": "Fixture id names capability + lock target on THIS bitboard (board_id). Never implies other boards or pairings.",
+    "claim_kinds": {
+      "planner_reachability": "BFS / stepwise sim reaches want_lock from spawn",
+      "executor_path": "Rosy emulator runs recorded_path to want_lock without misdrop",
+      "srs_negative": "SRS rejects a specific lock (kick table / floor policy)",
+      "misdrop_detection": "begin_drop must not false-positive on this board+path",
+      "spawn_capture": "Savestate is true spawn (at_true_spawn)",
+      "auxiliary_board": "Board probe only \u2014 no end-to-end contract"
+    },
+    "knowledge": {
+      "proven": "CI-enforced regression test",
+      "documented_gap": "Known fail baseline \u2014 records gap, not a regression",
+      "untested": "No automated check yet"
+    },
+    "ci": {
+      "planner_golden": "claims where kind=planner_reachability and enforced_in_ci=true",
+      "rosy_golden_pass": "claims where kind=executor_path, knowledge=proven, enforced_in_ci=true",
+      "replay_restore": "planner_reachability proven + executor_path not documented_gap"
+    },
+    "intake": "Export spawn savestate from browser \u2192 node tools/import_misdrop_replay.js <replay.json> --id <name> \u2192 paste manifest snippet."
+  },
+  "rom_sha1": "9468fe9374e7fb75bf3d6e7ad485355c17ea9e6e",
+  "fixtures": [
+    {
+      "id": "misdrop_t_tuck_r16_c5_r0",
+      "pair_label": "T\u2192L 20260709-081908",
+      "b64": "misdrop_t_tuck_r16_c5_r0_state.b64",
+      "meta": "misdrop_t_tuck_r16_c5_r0_meta.json",
+      "board_id": "240fe8a0",
+      "piece": "T",
+      "next": "L",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CW",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 5,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_t_spin_r16_c2_r2",
+      "pair_label": "T\u2192L 20260709-134151",
+      "b64": "misdrop_t_spin_r16_c2_r2_state.b64",
+      "meta": "misdrop_t_spin_r16_c2_r2_meta.json",
+      "board_id": "674a495b",
+      "piece": "T",
+      "next": "L",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 2,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_tuck_r14_c2_r3",
+      "pair_label": "J\u2192S 20260709-134822",
+      "b64": "misdrop_j_tuck_r14_c2_r3_state.b64",
+      "meta": "misdrop_j_tuck_r14_c2_r3_meta.json",
+      "board_id": "db0edf5b",
+      "piece": "J",
+      "next": "S",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "CCW",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 14,
+        "col": 2,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_spin_r15_c8_r3",
+      "pair_label": "J\u2192L 20260709-134915",
+      "b64": "misdrop_j_spin_r15_c8_r3_state.b64",
+      "meta": "misdrop_j_spin_r15_c8_r3_meta.json",
+      "board_id": "2dc88be3",
+      "piece": "J",
+      "next": "L",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "CW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CW",
+        "D",
+        "CW",
+        "R",
+        "CCW",
+        "R",
+        "R",
+        "D",
+        "CW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 8,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_l_spin_r15_c4_r1",
+      "pair_label": "L\u2192J 20260709-134939",
+      "b64": "misdrop_l_spin_r15_c4_r1_state.b64",
+      "meta": "misdrop_l_spin_r15_c4_r1_meta.json",
+      "board_id": "0616e992",
+      "piece": "L",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 4,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_t_tuck_r16_c4_r0",
+      "pair_label": "T\u2192J 20260709-135028",
+      "b64": "misdrop_t_tuck_r16_c4_r0_state.b64",
+      "meta": "misdrop_t_tuck_r16_c4_r0_meta.json",
+      "board_id": "ac9877ac",
+      "piece": "T",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 4,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_tuck_r15_c1_r3",
+      "pair_label": "J\u2192S 20260709-135105",
+      "b64": "misdrop_j_tuck_r15_c1_r3_state.b64",
+      "meta": "misdrop_j_tuck_r15_c1_r3_meta.json",
+      "board_id": "8222c4f7",
+      "piece": "J",
+      "next": "S",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 1,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_spin_r16_c6_r2",
+      "pair_label": "J\u2192S 20260709-135203",
+      "b64": "misdrop_j_spin_r16_c6_r2_state.b64",
+      "meta": "misdrop_j_spin_r16_c6_r2_meta.json",
+      "board_id": "15598ff5",
+      "piece": "J",
+      "next": "S",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "D",
+        "R",
+        "D",
+        "R",
+        "CCW",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 6,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_s_spin_r16_c5_r2",
+      "pair_label": "S\u2192J 20260709-135235",
+      "b64": "misdrop_s_spin_r16_c5_r2_state.b64",
+      "meta": "misdrop_s_spin_r16_c5_r2_meta.json",
+      "board_id": "da371f25",
+      "piece": "S",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "R",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 5,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_t_tuck_r15_c4_r0",
+      "pair_label": "T\u2192Z 20260709-135310",
+      "b64": "misdrop_t_tuck_r15_c4_r0_state.b64",
+      "meta": "misdrop_t_tuck_r15_c4_r0_meta.json",
+      "board_id": "dafa7e0b",
+      "piece": "T",
+      "next": "Z",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "R",
+        "R",
+        "CCW",
+        "D",
+        "D",
+        "R",
+        "D",
+        "D",
+        "L",
+        "D",
+        "D",
+        "CW",
+        "L",
+        "D",
+        "L",
+        "L"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 4,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_z_spin_r14_c2_r1",
+      "pair_label": "Z\u2192T 20260709-140055",
+      "b64": "misdrop_z_spin_r14_c2_r1_state.b64",
+      "meta": "misdrop_z_spin_r14_c2_r1_meta.json",
+      "board_id": "9edcdcda",
+      "piece": "Z",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "CW"
+      ],
+      "want_lock": {
+        "row": 14,
+        "col": 2,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_z_tuck_r16_c6_r0",
+      "pair_label": "Z\u2192J 20260709-140135",
+      "b64": "misdrop_z_tuck_r16_c6_r0_state.b64",
+      "meta": "misdrop_z_tuck_r16_c6_r0_meta.json",
+      "board_id": "56627cd4",
+      "piece": "Z",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 6,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_o_normal_r15_c3_r1",
+      "pair_label": "O\u2192J 20260709-140312",
+      "b64": "misdrop_o_normal_r15_c3_r1_state.b64",
+      "meta": "misdrop_o_normal_r15_c3_r1_meta.json",
+      "board_id": "335a9db0",
+      "piece": "O",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "CCW",
+        "L"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 3,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Row misdrop \u2014 normal fast-path"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_s_normal_r14_c2_r1",
+      "pair_label": "S\u2192J 20260709-140323",
+      "b64": "misdrop_s_normal_r14_c2_r1_state.b64",
+      "meta": "misdrop_s_normal_r14_c2_r1_meta.json",
+      "board_id": "aca14778",
+      "piece": "S",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "R",
+        "D",
+        "CW",
+        "D"
+      ],
+      "want_lock": {
+        "row": 14,
+        "col": 2,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Row misdrop \u2014 normal fast-path"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_spin_r16_c5_r2",
+      "pair_label": "J\u2192S 20260709-140531",
+      "b64": "misdrop_j_spin_r16_c5_r2_state.b64",
+      "meta": "misdrop_j_spin_r16_c5_r2_meta.json",
+      "board_id": "62c6f1e0",
+      "piece": "J",
+      "next": "S",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D",
+        "R",
+        "R",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 5,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_z_normal_r15_c1_r0",
+      "pair_label": "Z\u2192O 20260709-140544",
+      "b64": "misdrop_z_normal_r15_c1_r0_state.b64",
+      "meta": "misdrop_z_normal_r15_c1_r0_meta.json",
+      "board_id": "bc6d4a5e",
+      "piece": "Z",
+      "next": "O",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "D",
+        "D"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 1,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Row misdrop \u2014 normal fast-path"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_normal_r15_c3_r1",
+      "pair_label": "J\u2192T 20260709-202424",
+      "b64": "misdrop_j_normal_r15_c3_r1_state.b64",
+      "meta": "misdrop_j_normal_r15_c3_r1_meta.json",
+      "board_id": "6258704e",
+      "piece": "J",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "L",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 3,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser. replay_pass \u2014 live got stale/flaky; emulator lands want."
+    },
+    {
+      "id": "misdrop_o_normal_r15_c7_r1",
+      "pair_label": "O\u2192I 20260709-203000",
+      "b64": "misdrop_o_normal_r15_c7_r1_state.b64",
+      "meta": "misdrop_o_normal_r15_c7_r1_meta.json",
+      "board_id": "221466bc",
+      "piece": "O",
+      "next": "I",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 7,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser. replay_pass \u2014 live got row 16 (col/rot OK); emulator lands want row 15."
+    },
+    {
+      "id": "misdrop_t_normal_r15_c7_r0",
+      "pair_label": "T\u2192S 20260709-203616",
+      "b64": "misdrop_t_normal_r15_c7_r0_state.b64",
+      "meta": "misdrop_t_normal_r15_c7_r0_meta.json",
+      "board_id": "b03f71cc",
+      "piece": "T",
+      "next": "S",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 7,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_j_normal_r16_c0_r0",
+      "pair_label": "J\u2192T 20260709-205224",
+      "b64": "misdrop_j_normal_r16_c0_r0_state.b64",
+      "meta": "misdrop_j_normal_r16_c0_r0_meta.json",
+      "board_id": "fb5a8b4a",
+      "piece": "J",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "L",
+        "CW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "D",
+        "D"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 0,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser"
+    },
+    {
+      "id": "misdrop_i_normal_r14_c0_r1",
+      "pair_label": "I\u2192Z 20260709-214213",
+      "b64": "misdrop_i_normal_r14_c0_r1_state.b64",
+      "meta": "misdrop_i_normal_r14_c0_r1_meta.json",
+      "board_id": "6f0945fc",
+      "piece": "I",
+      "next": "Z",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D"
+      ],
+      "want_lock": {
+        "row": 14,
+        "col": 0,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser. replay_pass \u2014 board verify read bottom cell row 17 instead of anchor row 14."
+    },
+    {
+      "id": "misdrop_o_normal_r15_c8_r0",
+      "pair_label": "O\u2192I 20260709-225429",
+      "b64": "misdrop_o_normal_r15_c8_r0_state.b64",
+      "meta": "misdrop_o_normal_r15_c8_r0_meta.json",
+      "board_id": "32586776",
+      "piece": "O",
+      "next": "I",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "normal",
+      "recorded_path": [
+        "D",
+        "D",
+        "D"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 8,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "False positive \u2014 sprite row 16 vs anchor 15 during partial merge"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-09 from browser. replay_pass \u2014 partial merge spurious row 16."
+    },
+    {
+      "id": "misdrop_j_tuck_r14_c3_r0",
+      "pair_label": "J\u2192T 20260710-200923",
+      "b64": "misdrop_j_tuck_r14_c3_r0_state.b64",
+      "meta": "misdrop_j_tuck_r14_c3_r0_meta.json",
+      "board_id": "93a22990",
+      "piece": "J",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "L",
+        "D",
+        "D",
+        "R",
+        "R"
+      ],
+      "want_lock": {
+        "row": 14,
+        "col": 3,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "evaluate_lock says OK \u2014 false positive (got row16 want row14)"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-10 from browser"
+    },
+    {
+      "id": "misdrop_s_tuck_r15_c7_r3",
+      "pair_label": "S\u2192T 20260711-082429",
+      "b64": "misdrop_s_tuck_r15_c7_r3_state.b64",
+      "meta": "misdrop_s_tuck_r15_c7_r3_meta.json",
+      "board_id": "0dcc9ccd",
+      "piece": "S",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "R",
+        "R",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 7,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "with_want harness was OK historically; free-plan rosy_golden stays Idle/menu on this savestate \u2014 not a reliable gate"
+        }
+      ],
+      "notes": "Imported 2026-07-11 from browser. Blue B: executor_path promoted 2026-07-11."
+    },
+    {
+      "id": "misdrop_z_spin_r15_c1_r1",
+      "pair_label": "Z\u2192T 20260711-085330",
+      "b64": "misdrop_z_spin_r15_c1_r1_state.b64",
+      "meta": "misdrop_z_spin_r15_c1_r1_meta.json",
+      "board_id": "0905d2d1",
+      "piece": "Z",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "CW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 1,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-11 from browser"
+    },
+    {
+      "id": "misdrop_i_tuck_r16_c1_r0",
+      "pair_label": "I\u2192J 20260711-100350",
+      "b64": "misdrop_i_tuck_r16_c1_r0_state.b64",
+      "meta": "misdrop_i_tuck_r16_c1_r0_meta.json",
+      "board_id": "97a93c1b",
+      "piece": "I",
+      "next": "J",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "L",
+        "CCW",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 1,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "evaluate_lock says OK \u2014 false positive (got row14 want row16)"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-11 from browser"
+    },
+    {
+      "id": "misdrop_j_spin_r15_c4_r3",
+      "pair_label": "J\u2192I 20260711-102818",
+      "b64": "misdrop_j_spin_r15_c4_r3_state.b64",
+      "meta": "misdrop_j_spin_r15_c4_r3_meta.json",
+      "board_id": "6c8a5f90",
+      "piece": "J",
+      "next": "I",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "CCW",
+        "D",
+        "L",
+        "CW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 4,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-11 from browser"
+    },
+    {
+      "id": "misdrop_t_spin_r16_c5_r2",
+      "pair_label": "T\u2192O 20260711-105201",
+      "b64": "misdrop_t_spin_r16_c5_r2_state.b64",
+      "meta": "misdrop_t_spin_r16_c5_r2_meta.json",
+      "board_id": "90116f42",
+      "piece": "T",
+      "next": "O",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "L",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 5,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import (meta spawn_col 3)"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Browser got (13,5,r3) vs want (16,5,r2)"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "misdrop_real_detection::t_spin_r16_c5_r2_planner_reaches_want \u2014 BFS+sim at spawn col3"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "GREEN: t_spin_r16_c5_r2_executor_reaches_want_lock (with_want) \u2014 setup-CCW emu-kick BFS replan R,D,D,L,CCW. Blue: enforced_in_ci after free-plan also selects want (rosy uses free plan)"
+        }
+      ],
+      "notes": "Imported 2026-07-11 \u2014 executor Green (with_want); free-plan may still prefer tuck (15,5,r3)"
+    },
+    {
+      "id": "misdrop_l_spin_r15_c2_r1",
+      "pair_label": "L\u2192T 20260711-144632",
+      "b64": "misdrop_l_spin_r15_c2_r1_state.b64",
+      "meta": "misdrop_l_spin_r15_c2_r1_meta.json",
+      "board_id": "69f64bea",
+      "piece": "L",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CW",
+        "CW",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 2,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-11 from browser"
+    },
+    {
+      "id": "misdrop_i_spin_r14_c0_r2",
+      "pair_label": "I\u2192T 20260716-200305",
+      "b64": "misdrop_i_spin_r14_c0_r2_state.b64",
+      "meta": "misdrop_i_spin_r14_c0_r2_meta.json",
+      "board_id": "7c0540c2",
+      "piece": "I",
+      "next": "T",
+      "spawn": {
+        "col": 0,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "CCW",
+        "L",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "L",
+        "D",
+        "L",
+        "D",
+        "D",
+        "L",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 14,
+        "col": 0,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false
+        }
+      ],
+      "notes": "Imported 2026-07-16 from browser"
+    },
+    {
+      "id": "misdrop_l_spin_r15_c3_r2",
+      "pair_label": "L\u2192J 20260716-204924",
+      "b64": "misdrop_l_spin_r15_c3_r2_state.b64",
+      "meta": "misdrop_l_spin_r15_c3_r2_meta.json",
+      "board_id": "18fe6aeb",
+      "piece": "L",
+      "next": "J",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "L",
+        "CCW",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 3,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import (meta spawn_col 3)"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Browser got (15,2,r3) vs want (15,3,r2) \u2014 row OK, terminal CCW missed"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "fail_unreachable",
+          "notes": "want (15,3,r2) unreachable under floor SRS \u2014 L CCW r3\u2192r2 kick (1,1) blocked; see srs::l_spin_r15_c3_r2_terminal_ccw_srs"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_executor",
+          "notes": "Browser got (15,2,r3): sim-only terminal CCW; no hardware path to want"
+        }
+      ],
+      "notes": "Imported 2026-07-16 from browser \u2014 execution failure at terminal spin rot"
+    },
+    {
+      "id": "misdrop_j_tuck_r13_c3_r3",
+      "pair_label": "J\u2192Z 20260717-195501",
+      "b64": "misdrop_j_tuck_r13_c3_r3_state.b64",
+      "meta": "misdrop_j_tuck_r13_c3_r3_meta.json",
+      "board_id": "4e885a00",
+      "piece": "J",
+      "next": "Z",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "CCW",
+        "R",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 13,
+        "col": 3,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "j_tuck_r13_c3_r3_planner_reaches_want \u2014 sim without L = got (13,4,r3)"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "GREEN: j_tuck_r13_c3_r3_executor_reaches_want_lock \u2014 skip leftover well Ds when grounded, terminal L in lock-delay (PathPlanVsExecution). Blue: rosy CI later"
+        }
+      ],
+      "notes": "Imported 2026-07-17 \u2014 executor Green (closed-loop tuck D goals)"
+    },
+    {
+      "id": "misdrop_z_tuck_r13_c6_r1",
+      "pair_label": "Z\u2192J 20260717-215951",
+      "b64": "misdrop_z_tuck_r13_c6_r1_state.b64",
+      "meta": "misdrop_z_tuck_r13_c6_r1_meta.json",
+      "board_id": "5be8790b",
+      "piece": "Z",
+      "next": "J",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "CW",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 13,
+        "col": 6,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import (meta spawn_col 3)"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Browser got (9,7,r1) vs want (13,6,r1)"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "z_tuck_r13_c6_r1_planner_reaches_want \u2014 BFS mid-descent after Z center fix (old spawn CW path obsolete)"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "GREEN: z_tuck_r13_c6_r1_executor_reaches_want_lock \u2014 gravity-ahead consume setup R overshoot so descent stays in tuck well"
+        }
+      ],
+      "notes": "Imported 2026-07-17 \u2014 executor Green (L-well tuck); setup lateral overshoot fixed"
+    },
+    {
+      "id": "misdrop_j_spin_r16_c1_r0",
+      "pair_label": "J\u2192O 20260717-221717",
+      "b64": "misdrop_j_spin_r16_c1_r0_state.b64",
+      "meta": "misdrop_j_spin_r16_c1_r0_meta.json",
+      "board_id": "3b29b35e",
+      "piece": "J",
+      "next": "O",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "CW",
+        "D",
+        "D",
+        "CCW",
+        "D"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 1,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Real misdrop per evaluate_lock \u2014 fix bot before enforcing"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "j_spin_r16_c1_r0_planner_reaches_want"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "GREEN: j_spin_r16_c1_r0_executor_reaches_want_lock \u2014 one spin emu-kick replan max; do not skip mid-path D before non-terminal rot"
+        }
+      ],
+      "notes": "Imported 2026-07-17 \u2014 executor Green (spin replan thrash fixed)"
+    },
+    {
+      "id": "misdrop_l_spin_r13_c6_r1",
+      "pair_label": "L\u2192I 20260717-232206",
+      "b64": "misdrop_l_spin_r13_c6_r1_state.b64",
+      "meta": "misdrop_l_spin_r13_c6_r1_meta.json",
+      "board_id": "e62e329a",
+      "piece": "L",
+      "next": "I",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "CCW",
+        "CCW",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 13,
+        "col": 6,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Live short lock from impossible floor spin plan"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "fail_unreachable",
+          "notes": "want (13,6,r1) unreachable under generalized floor cavity policy (grounded under lip must climb); srs::l_spin_r13_c6_r1_want_blocked_by_floor_srs"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_executor",
+          "notes": "Browser got (11,6,r1): sim-only terminal floor spin; plan false positive (not executor)"
+        }
+      ],
+      "notes": "Imported 2026-07-17 from browser \u2014 plan error: floor spin under lip (Green+Blue: cavity climb rule; removed L from_rot==3 kick special-case)"
+    },
+    {
+      "id": "misdrop_l_spin_r15_c2_r1_20260717-234304",
+      "pair_label": "L\u2192Z 20260717-234304",
+      "b64": "misdrop_l_spin_r15_c2_r1_20260717-234304_state.b64",
+      "meta": "misdrop_l_spin_r15_c2_r1_20260717-234304_meta.json",
+      "board_id": "5386b3b8",
+      "piece": "L",
+      "next": "Z",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CW",
+        "CW",
+        "D",
+        "D",
+        "CCW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 2,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Live misdrop from impossible floor spin plan"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "fail_unreachable",
+          "notes": "want (15,2,r1) fiction floor dig via basic rot; srs::l_spin_r15_c2_r1_20260717_want_blocked_by_floor_srs"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_executor",
+          "notes": "Browser got (15,4,r2); plan was sim-only, not executor root cause"
+        }
+      ],
+      "notes": "Imported 2026-07-17 L\u2192Z \u2014 plan fiction (floor dig basic rot). Green: grounded test0 must not deepen max mino row."
+    },
+    {
+      "id": "misdrop_t_tuck_r12_c7_r1_20260718-093702",
+      "pair_label": "T\u2192Z 20260718-093702",
+      "b64": "misdrop_t_tuck_r12_c7_r1_20260718-093702_state.b64",
+      "meta": "misdrop_t_tuck_r12_c7_r1_20260718-093702_meta.json",
+      "board_id": "cb11a675",
+      "piece": "T",
+      "next": "Z",
+      "spawn": {
+        "col": 4,
+        "rot": 1,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "R"
+      ],
+      "want_lock": {
+        "row": 12,
+        "col": 7,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Browser got (9,8,r1) vs want (12,7,r1)"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: prefer_simplest keeps D-first (t_tuck_r12_c7_r1_planner_reaches_want)"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: t_tuck_r12_c7_r1_executor_reaches_want_lock"
+        }
+      ],
+      "notes": "Imported 2026-07-18 T\u2192Z. Green: D-first terminal tuck preference. Blue: path_order_penalty merges late-rot + tuck early-lateral rules."
+    },
+    {
+      "id": "misdrop_i_tuck_r17_c4_r0_20260718-102732",
+      "pair_label": "I\u2192J 20260718-102732",
+      "b64": "misdrop_i_tuck_r17_c4_r0_20260718-102732_state.b64",
+      "meta": "misdrop_i_tuck_r17_c4_r0_20260718-102732_meta.json",
+      "board_id": "25b55498",
+      "piece": "I",
+      "next": "J",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "R",
+        "R",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 17,
+        "col": 4,
+        "rot": 0
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Historical meta want\u2260got; executor GREEN (live no longer misdrops)"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: i_tuck_r17_c4_r0_planner_reaches_want"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: mid-path R confirms under gravity; free replan dual-lock"
+        }
+      ],
+      "notes": "Imported 2026-07-18 I\u2192J. Plan OK (D\u00d716 RR DDL). Executor re-pressed R when gravity dropped during lateral hold \u2192 col6. Green: confirm L/R on \u00b11 col even if row changed. Blue: shared col_step_ok for same-row and gravity cases."
+    },
+    {
+      "id": "misdrop_z_spin_r15_c1_r1_20260718-103523",
+      "pair_label": "Z\u2192J 20260718-103523",
+      "b64": "misdrop_z_spin_r15_c1_r1_20260718-103523_state.b64",
+      "meta": "misdrop_z_spin_r15_c1_r1_20260718-103523_meta.json",
+      "board_id": "dce1dd42",
+      "piece": "Z",
+      "next": "J",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "spin",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CW"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 1,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Historical meta from fiction plan; GREEN is planner fail_unreachable"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "fail_unreachable",
+          "notes": "GREEN: (15,1,r1) sim-only; hardware CW@(16,3)\u2192(15,3)"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "untested",
+          "enforced_in_ci": false,
+          "notes": "Not dual-lock executor \u2014 planner fiction"
+        },
+        {
+          "kind": "srs_negative",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "z_spin_r15_c1_r1_20260718_floor_up_same_col"
+        }
+      ],
+      "notes": "Imported 2026-07-18 Z\u2192J. Want (15,1,r1) via D\u00d718+CW is SRS fiction (manual joypad CW at 16,3 \u2192 15,3). Green: S/Z grounded floor prefers up-same-col. Blue: merge prior under-lip special case into same rule."
+    },
+    {
+      "id": "misdrop_l_tuck_r13_c3_r1_20260718-105850",
+      "pair_label": "L\u2192S 20260718-105850",
+      "b64": "misdrop_l_tuck_r13_c3_r1_20260718-105850_state.b64",
+      "meta": "misdrop_l_tuck_r13_c3_r1_20260718-105850_meta.json",
+      "board_id": "6ea1d5df",
+      "piece": "L",
+      "next": "S",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "CW",
+        "D",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 13,
+        "col": 3,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Historical sprite got row; board locks want after Green"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: mid-descent rot kept (not spawn CW)"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: dual-lock (13,3,r1); terminal R + release holds"
+        }
+      ],
+      "notes": "Imported 2026-07-18 L\u2192S. prefer_simplest rewrote mid-stack CW to spawn CW (hw kick col4). Green: keep BFS mid-descent rot for tucks; chain terminal R; release L/R on confirm; freeze Dropping pose in dual-lock harness."
+    },
+    {
+      "id": "misdrop_l_tuck_r15_c4_r1_20260718-112848",
+      "pair_label": "L\u2192S 20260718-112848",
+      "b64": "misdrop_l_tuck_r15_c4_r1_20260718-112848_state.b64",
+      "meta": "misdrop_l_tuck_r15_c4_r1_20260718-112848_meta.json",
+      "board_id": "7748cf8b",
+      "piece": "L",
+      "next": "S",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CW",
+        "D",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 4,
+        "rot": 1
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Historical row-short sprite; evaluate_lock row-only on tuck"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: mid-descent CW kept"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: dual-lock (15,4,r1)"
+        }
+      ],
+      "notes": "Imported 2026-07-18 L\u2192S. BFS D\u00d716 CW DD R; prefer_simplest rewrote spawn CW (hw col4, grounds r13). Green: keep all mid-descent tuck rots (generalize r13 lat\u2192rot rule)."
+    },
+    {
+      "id": "misdrop_z_tuck_r16_c2_r2_20260718-162308",
+      "pair_label": "Z\u2192S 20260718-162308",
+      "b64": "misdrop_z_tuck_r16_c2_r2_20260718-162308_state.b64",
+      "meta": "misdrop_z_tuck_r16_c2_r2_20260718-162308_meta.json",
+      "board_id": "5b35a5fa",
+      "piece": "Z",
+      "next": "S",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "L",
+        "L",
+        "CW",
+        "CW",
+        "D",
+        "R"
+      ],
+      "want_lock": {
+        "row": 16,
+        "col": 2,
+        "rot": 2
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "GREEN: Z SRS_CENTER; want still BFS-reachable via mid-stack path (not old fiction left CW)"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "GREEN dual-lock: free replan no misdrop (often (16,2,r0)); forced want locks when offered \u2014 not rosy free-plan want gate"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Historical browser misdrop before Z center fix"
+        }
+      ],
+      "notes": "Imported 2026-07-18 Z\u2192S. Browser D\u00d715 CW\u2026 want (16,2,r2) got (13,4,r1). Root cause: Z true-rotation center all (1,0) \u2014 sim CW left to col2, hardware right to col4. Green: SRS_CENTER[Z]=[(2,1),(1,0),(1,1),(1,1)]. Free replan no longer follows fiction."
+    },
+    {
+      "id": "misdrop_j_tuck_r15_c6_r3_20260718-165150",
+      "pair_label": "J\u2192Z 20260718-165150",
+      "b64": "misdrop_j_tuck_r15_c6_r3_20260718-165150_state.b64",
+      "meta": "misdrop_j_tuck_r15_c6_r3_20260718-165150_meta.json",
+      "board_id": "b765a125",
+      "piece": "J",
+      "next": "Z",
+      "spawn": {
+        "col": 3,
+        "rot": 0,
+        "row": -2
+      },
+      "class": "tuck",
+      "recorded_path": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "D",
+        "CCW",
+        "CCW",
+        "D",
+        "CW",
+        "R",
+        "D",
+        "D",
+        "L"
+      ],
+      "want_lock": {
+        "row": 15,
+        "col": 6,
+        "rot": 3
+      },
+      "generalizes": false,
+      "claims": [
+        {
+          "kind": "spawn_capture",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "notes": "True spawn at import"
+        },
+        {
+          "kind": "misdrop_detection",
+          "knowledge": "documented_gap",
+          "enforced_in_ci": false,
+          "baseline": "fail_misdrop",
+          "notes": "Historical browser misdrop before path_exec mid-rot stall replan"
+        },
+        {
+          "kind": "planner_reachability",
+          "knowledge": "proven",
+          "enforced_in_ci": true,
+          "baseline": "pass",
+          "notes": "BFS reaches want; dual-lock planner test"
+        },
+        {
+          "kind": "executor_path",
+          "knowledge": "proven",
+          "enforced_in_ci": false,
+          "baseline": "pass",
+          "notes": "GREEN dual-lock forced+free; not rosy recorded_path gate"
+        }
+      ],
+      "notes": "Imported 2026-07-18 J\u2192Z. Browser D\u00d715 CCW\u00d72\u2026 want (15,6,r3) got (13,3,r3). Root: grounded mid-path 2nd CCW never confirmed; path_rot_wait only ticked on row advance so stall hung. Green: always tick path_rot_wait; grounded tuck replan-from-live before recover retry."
+    }
+  ]
+}

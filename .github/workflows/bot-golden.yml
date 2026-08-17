@@ -1,0 +1,41 @@
+name: bot-golden
+
+on:
+  push:
+    paths:
+      - 'gbmul-core/src/bot/**'
+      - 'gbmul-core/tests/**'
+      - '.github/workflows/bot-golden.yml'
+  pull_request:
+    paths:
+      - 'gbmul-core/src/bot/**'
+      - 'gbmul-core/tests/**'
+      - '.github/workflows/bot-golden.yml'
+
+jobs:
+  golden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: SRS unit regressions (--lib)
+        run: |
+          cargo test -p gbmul-core --lib blocked_by_floor_policy
+          cargo test -p gbmul-core --lib i_tuck_r16_c1_r0_floor_ccw_matches_hardware
+
+      - name: Manifest contract
+        run: cargo test -p gbmul-core --test manifest_contract
+
+      - name: Misdrop detection golden
+        run: cargo test -p gbmul-core --test misdrop_detection
+
+      - name: Planner golden (BFS parity)
+        run: cargo test -p gbmul-core --test planner_golden
+
+      - name: Spawn capture golden (host pairing parity)
+        run: cargo test -p gbmul-core --test spawn_capture
+
+      - name: Rosy emulator golden (pass fixtures)
+        run: cargo test -p gbmul-core --features emulator_tests rosy_golden_pass

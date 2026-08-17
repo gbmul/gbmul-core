@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "gbmul misdrop fixture manifest",
+  "type": "object",
+  "required": ["version", "rom_sha1", "fixtures"],
+  "properties": {
+    "version": { "const": 2 },
+    "contract": { "type": "object" },
+    "rom_sha1": { "type": "string", "minLength": 40 },
+    "fixtures": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/fixture" }
+    }
+  },
+  "definitions": {
+    "claim_kind": {
+      "enum": [
+        "planner_reachability",
+        "executor_path",
+        "srs_negative",
+        "misdrop_detection",
+        "spawn_capture",
+        "auxiliary_board"
+      ]
+    },
+    "knowledge": {
+      "enum": ["proven", "documented_gap", "untested"]
+    },
+    "claim": {
+      "type": "object",
+      "required": ["kind", "knowledge"],
+      "properties": {
+        "kind": { "$ref": "#/definitions/claim_kind" },
+        "knowledge": { "$ref": "#/definitions/knowledge" },
+        "enforced_in_ci": { "type": "boolean" },
+        "baseline": { "type": ["string", "null"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "required": ["id", "b64", "piece", "claims"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "Capability + board target — NOT piece pairing"
+        },
+        "b64": { "type": "string" },
+        "board_id": { "type": ["string", "null"], "pattern": "^[0-9a-f]{8}$" },
+        "legacy_id": { "type": "string" },
+        "pair_label": { "type": "string" },
+        "generalizes": { "type": "boolean" },
+        "claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/claim" }
+        }
+      }
+    }
+  }
+}
